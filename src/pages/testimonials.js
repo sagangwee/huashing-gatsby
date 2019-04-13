@@ -1,5 +1,6 @@
 import React from "react";
 
+import Layout from "../components/layout/Layout"
 import Testimonial from "../components/Testimonial";
 
 export default class Testimonials extends React.Component {
@@ -14,15 +15,17 @@ export default class Testimonials extends React.Component {
     const reviewer1 = "Christiana Moore";
 
     return (
-      <div>
-        <h1 className="page-title">Testimonials</h1>
+      <Layout location={this.props.location}>
         <div>
-          <Testimonial text={testimonialText1} reviewer={reviewer1}></Testimonial>
-          <Testimonial text={testimonialText2} reviewer={reviewer2}></Testimonial>
-          <Testimonial text={testimonialText3} reviewer={reviewer3}></Testimonial>
-          <Testimonial text={testimonialText4} reviewer={reviewer4}></Testimonial>
+          <h1 className="page-title">Testimonials</h1>
+          <div>
+            <Testimonial text={testimonialText1} reviewer={reviewer1}></Testimonial>
+            <Testimonial text={testimonialText2} reviewer={reviewer2}></Testimonial>
+            <Testimonial text={testimonialText3} reviewer={reviewer3}></Testimonial>
+            <Testimonial text={testimonialText4} reviewer={reviewer4}></Testimonial>
+          </div>
         </div>
-      </div>
+      </Layout>
     );
   }
 }

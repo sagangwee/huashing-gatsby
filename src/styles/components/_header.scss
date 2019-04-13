@@ -34,7 +34,7 @@ header {
   h1 {
     &:first-of-type {
       margin-top: 0.5em;
-    } 
+    }
 
     &:last-child {
       margin-bottom: 0.5em;
@@ -61,7 +61,7 @@ header {
   }
 }
 
-.fa-map-marker, .fa-phone {
+.header-icon {
   color: #96d019;
   margin-right: 0.5em;
 }

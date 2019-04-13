@@ -44,15 +44,17 @@
     padding: 0;
     text-align: center;
 
-	li {
-	  margin: 30px;
-	  display: inline-block;
+		li {
+		  margin: 30px;
+		  display: inline-block;
+			width: 30%;
 
-	  img {
-	  	max-height: 70px;
-	  	vertical-align: middle;
-	  }
-    }
+			@include medium-large {
+		    width: 100%;
+				margin: 20px 0;
+		  }
+
+	   }
   }
 
   @include small {
@@ -69,15 +71,26 @@
     padding: 0;
     text-align: center;
 
-	li {
-	  margin: 15px;
-	  display: inline-block;
+		li {
+		  margin: 15px;
+		  display: inline-block;
+			width: 25%;
 
-	  img {
-	  	max-height: 50px;
-	  	vertical-align: middle;
+			@include medium-large {
+		    width: 50%;
+				margin: 20px 0;
+		  }
+
+			@include medium {
+		    width: 100%;
+				margin: 20px 0;
+		  }
+
+		  img {
+		  	max-height: 50px;
+		  	vertical-align: middle;
+		  }
 	  }
-    }
   }
 
   @include small {

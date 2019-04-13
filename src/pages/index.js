@@ -3,9 +3,11 @@ import ImageGallery from 'react-image-gallery';
 import Button from "../components/Button";
 import { Link } from "gatsby";
 import TestimonialCarousel from "../components/TestimonialCarousel";
-import Layout from "../components/layout/Layout"
-import SEO from "../components/seo"
-import huashing from "../images/huawang.jpg"
+import Layout from "../components/layout/Layout";
+import SEO from "../components/seo";
+import acupuncture from "../images/carousel/acupuncture-cc-650.jpg";
+import tcm from "../images/carousel/tcm-cc-650.jpg";
+import huashing from "../images/huawang.jpg";
 
 export default class IndexPage extends React.Component {
   constructor() {
@@ -66,16 +68,14 @@ export default class IndexPage extends React.Component {
   }
 
   render() {
-    const acupunctureSrc = "images/carousel/acupuncture-cc-650.jpg";
-    const tcmSrc = "images/carousel/tcm-cc-650.jpg";
     const images = [
       {
-        original: acupunctureSrc,
+        original: acupuncture,
         description: 'Acupuncture',
         subHeading: 'Healing & Wellness'
       },
       {
-        original: tcmSrc,
+        original: tcm,
         description: 'Traditional Chinese Medicine'
       }
     ]

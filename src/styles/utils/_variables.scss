@@ -1,5 +1,6 @@
 $break-small: 480px;
 $break-medium: 550px;
+$break-medium-large: 750px;
 $break-large: 1140px;
 
 @mixin small {
@@ -10,6 +11,12 @@ $break-large: 1140px;
 
 @mixin medium {
   @media screen and (max-width: $break-medium) {
+    @content;
+  }
+}
+
+@mixin medium-large {
+  @media screen and (max-width: $break-medium-large) {
     @content;
   }
 }

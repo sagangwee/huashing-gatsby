@@ -1,7 +1,6 @@
 import React from "react";
 import Address from "../components/Address";
-import ResponsiveColumn from "../components/ResponsiveColumn";
-import {Grid, Row, Column, observeGrid} from 'react-cellblock';
+import Layout from "../components/layout/Layout"
 
 const locationHeaderStyle = {
   marginBottom: "0.5em",
@@ -19,9 +18,8 @@ const street2 = "4025 W Chandler Blvd";
 const number2 = "Suite 3";
 const cityStateZip2 = "Chandler, Arizona 85226";
 
-export default function Contact() {
-
-  return (
+export default ({ children, location }) => (
+  <Layout location={location}>
     <div className="contact-page">
       <div className="contact-phone">
         <h2 style={phoneHeaderStyle}>Phone</h2>
@@ -38,5 +36,5 @@ export default function Contact() {
         <Address name={name} street={street2} number={number2} cityStateZip={cityStateZip2} > </Address>
       </div>
     </div>
-  );
-}
+  </Layout>
+);
