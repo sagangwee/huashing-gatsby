@@ -87,7 +87,9 @@ export default class IndexPage extends React.Component {
 
     return (
       <Layout location={this.props.location}>
-        <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
+        <SEO
+          title="Home"
+          keywords={[`home`, `acupuncture`, 'arizona', `traditional`, 'chinese', 'medicine']} />
         <div>
           <ImageGallery
             ref={i => this._imageGallery = i}
