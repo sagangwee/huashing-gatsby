@@ -1,5 +1,6 @@
 import React from "react";
 import SiteMap from "./SiteMap";
+import { FaBars } from 'react-icons/fa';
 
 export default class Nav extends React.Component {
   constructor() {
@@ -61,7 +62,7 @@ export default class Nav extends React.Component {
     return (
       <nav className={navClasses.join(' ')}>
         <div className={navMobileClasses.join(' ')} onClick={this.toggleCollapse.bind(this)}>
-          <i className="fa fa-bars" aria-hidden="true"></i>
+          <FaBars size={18}/>
         </div>
         <SiteMap
           navListClasses={navListClasses}

@@ -58,17 +58,17 @@
 		margin: 0;
 		padding: 0;
 	}
-} 
+}
 
 .nav-fixed {
 	position: fixed;
 	background-color: #fff;
 	width: 100%;
-    top: 0;
-    border-bottom: 2px solid;
-    border-top: none;
-    animation: slide 0.25s linear;
-    z-index: 10000;
+  top: 0;
+  border-bottom: 2px solid;
+  border-top: none;
+  animation: slide 0.25s linear;
+  z-index: 10000;
 }
 
 @keyframes slide {
@@ -132,14 +132,13 @@
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
 
-  .fa-bars {
-  	color: #1d9d74;
-  	font-size: 18px;
+	svg {
+		color: #1d9d74;
 
   	&:hover {
-  	  color: #78c272; 
+  	  color: #78c272;
   	}
-  }
+	}
 
   @include medium {
   	display: block;
