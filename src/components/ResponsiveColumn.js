@@ -1,12 +1,12 @@
 import React from "react";
-import {Grid, Row, Column, observeGrid} from 'react-cellblock';
+import {Column, observeGrid} from 'react-cellblock';
 
 const ResponsiveColumn = observeGrid(function (props) {
-  const { 
+  const {
     children,
     smallClasses,
     colWidth,
-    width 
+    width
   } = props;
 
   if (colWidth <= 6) {

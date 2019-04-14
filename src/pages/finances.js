@@ -2,25 +2,71 @@ import React from "react";
 import Img from "gatsby-image"
 import Layout from "../components/layout/Layout"
 
+const imgStyle = {
+  width: "auto",
+  top: "initial",
+  left: "0",
+  right: "0",
+  bottom: "0",
+  margin: "auto",
+}
+
+const wrapperStyle = {
+  maxHeight: "70px",
+}
+
+const paymentMethods = [
+  "check",
+  "mastercard",
+  "visa"
+]
+
+const insuranceCompanies = [
+  "aetna",
+  "amerigroup",
+  "amerihealth",
+  "anthem",
+  "beechStreet",
+  "blue",
+  "cigna",
+  "empire",
+  "firstChoiceHealth",
+  "greatWest",
+  "healthNet",
+  "horizon",
+  "humana",
+  "oxford",
+  "triwest",
+  "united",
+  "wellpoint"
+]
+
+const capitalize = (s) => {
+  if (typeof s !== 'string') return ''
+  return s.charAt(0).toUpperCase() + s.slice(1)
+}
+
 export default class Finances extends React.Component {
   constructor() {
     super()
-    this.renderInsuranceLogo = this.renderInsuranceLogo.bind(this);
+    this.renderPaymentImage = this.renderPaymentImage.bind(this)
+    this.renderInsuranceLogo = this.renderInsuranceLogo.bind(this)
+  }
+
+  renderPaymentImage(paymentMethod) {
+    return(
+      <li key={paymentMethod}>
+        <Img
+          alt={paymentMethod}
+          imgStyle={imgStyle}
+          style={wrapperStyle}
+          fluid={this.props.data[paymentMethod].childImageSharp.fluid} />
+        <div>{capitalize(paymentMethod)}</div>
+      </li>
+    )
   }
 
   renderInsuranceLogo(company) {
-    const imgStyle = {
-      width: "auto",
-      top: "initial",
-      left: "0",
-      right: "0",
-      bottom: "0",
-      margin: "auto",
-    };
-
-    const wrapperStyle = {
-      maxHeight: "70px",
-    }
     return(
       <li key={company}>
         <Img
@@ -33,37 +79,7 @@ export default class Finances extends React.Component {
   }
 
   render() {
-    const imgStyle = {
-      width: "auto",
-      top: "initial",
-      left: "0",
-      right: "0",
-      bottom: "0",
-      margin: "auto",
-    };
-
-    const wrapperStyle = {
-      maxHeight: "70px",
-    }
-    const insuranceCompanies = [
-      "aetna",
-      "amerigroup",
-      "amerihealth",
-      "anthem",
-      "beechStreet",
-      "blue",
-      "cigna",
-      "empire",
-      "firstChoiceHealth",
-      "greatWest",
-      "healthNet",
-      "horizon",
-      "humana",
-      "oxford",
-      "triwest",
-      "united",
-      "wellpoint"
-    ]
+    const paymentImages = paymentMethods.map(this.renderPaymentImage)
     const insuranceLogos = insuranceCompanies.map(this.renderInsuranceLogo)
 
     return (
@@ -80,43 +96,14 @@ export default class Finances extends React.Component {
             <div className="finance-section">
               <h2 className="center-text">Accepted Payment Methods</h2>
               <div className="payment-methods center-text">
-              	<ul>
-      	        	<li>
-                    <Img
-                      alt="Check"
-                      imgStyle={imgStyle}
-                      style={wrapperStyle}
-                      fluid={this.props.data.check.childImageSharp.fluid} />
-      					    <div>Check</div>
-      	        	</li>
-
-      	        	<li>
-      	        		<Img
-                      alt="Mastercard"
-                      imgStyle={imgStyle}
-                      style={wrapperStyle}
-                      fluid={this.props.data.mastercard.childImageSharp.fluid} />
-      	        		<div>Mastercard</div>
-      	        	</li>
-
-      	        	<li>
-      	        		<Img
-                      alt="Visa"
-                      imgStyle={imgStyle}
-                      style={wrapperStyle}
-                      fluid={this.props.data.visa.childImageSharp.fluid} />
-      	        		<div>Visa</div>
-      				    </li>
-    	        	</ul>
+              	<ul>{paymentImages}</ul>
               </div>
             </div>
 
             <div className="finance-section">
               <h2 className="center-text">Accepted Insurance Plans</h2>
               <div className="insurance">
-              	<ul>
-                  {insuranceLogos}
-              	</ul>
+              	<ul>{insuranceLogos}</ul>
               </div>
             </div>
           </div>
@@ -201,4 +188,4 @@ fragment fluidImage on File {
     }
   }
 }
-`;
+`

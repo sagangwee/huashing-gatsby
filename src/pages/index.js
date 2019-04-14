@@ -2,6 +2,7 @@ import React from "react";
 import ImageGallery from 'react-image-gallery';
 import Button from "../components/Button";
 import { Link } from "gatsby";
+import { FaPhone } from 'react-icons/fa';
 import TestimonialCarousel from "../components/TestimonialCarousel";
 import Layout from "../components/layout/Layout";
 import SEO from "../components/seo";
@@ -15,7 +16,6 @@ export default class IndexPage extends React.Component {
     this.state = {
       descriptionClasses: "fadeInLeft",
       subheadingClasses: "subheading fadeInRight",
-      testimonials: ["testimonial1", "test2"]
     };
     this.handleSlide = this.handleSlide.bind(this);
     this.renderItem = this.renderItem.bind(this);
@@ -44,7 +44,7 @@ export default class IndexPage extends React.Component {
   }
 
   handleSlide(currentIndex) {
-    if (currentIndex == 0) {
+    if (currentIndex === 0) {
       this.setState({
         descriptionClasses: "",
         subheadingClasses: ""
@@ -79,6 +79,11 @@ export default class IndexPage extends React.Component {
         description: 'Traditional Chinese Medicine'
       }
     ]
+
+    const testimonials =
+      this.props.data.allContentfulHomeTestimonial.edges.map(({ node }) =>
+        node.testimonialText.testimonialText
+    )
 
     return (
       <Layout location={this.props.location}>
@@ -117,7 +122,7 @@ export default class IndexPage extends React.Component {
             <div class="bio-inner">
               <div class="huawang-wrapper">
                 <h2>Meet the Expert</h2>
-                <img src={huashing} class="huawang-home"/>
+                <img alt="Huashing" src={huashing} class="huawang-home"/>
                 <Link to="about" class="about-link">About Hua Wang</Link>
               </div>
               <div class="bio-summary">
@@ -131,13 +136,13 @@ export default class IndexPage extends React.Component {
 
           <section class="testimonials-section">
             <h1>What Patients Are Saying</h1>
-            <TestimonialCarousel testimonials={this.state.testimonials} />
+            <TestimonialCarousel testimonials={testimonials} />
           </section>
 
           <section class="appointment-section">
             <h1>Make an Appointment</h1>
             <div class="appointment-phone">
-              <i class="fa fa-phone" aria-hidden="true"></i>
+              <FaPhone size={20}/>
               (480) 951-5785
             </div>
             <div class="appointment-location">
@@ -161,3 +166,17 @@ export default class IndexPage extends React.Component {
     );
   }
 }
+
+export const pageQuery = graphql`
+  query {
+    allContentfulHomeTestimonial {
+      edges {
+        node {
+          testimonialText {
+            testimonialText
+          }
+        }
+      }
+    }
+  }
+`
